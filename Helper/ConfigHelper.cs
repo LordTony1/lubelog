@@ -490,7 +490,9 @@ namespace CarCareTracker.Helper
                 ShowVehicleThumbnail = CheckBool(CheckString(nameof(UserConfig.ShowVehicleThumbnail))),
                 ShowSearch = CheckBool(CheckString(nameof(UserConfig.ShowSearch))),
                 DisableAutoZoom = CheckBool(CheckString(nameof(UserConfig.DisableAutoZoom))),
-                UseGridInMobile = CheckBool(CheckString(nameof(UserConfig.UseGridInMobile)))
+                EnablePersistentDialog = CheckBool(CheckString(nameof(UserConfig.EnablePersistentDialog))),
+                UseGridInMobile = CheckBool(CheckString(nameof(UserConfig.UseGridInMobile))),
+                EnableNotesColumnWrap = CheckBool(CheckString(nameof(UserConfig.EnableNotesColumnWrap)))
             };
             int userId = 0;
             if (user != null)
