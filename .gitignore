@@ -1,6 +1,9 @@
 .vs/
 bin/
 obj/
-data/
+data/*
+!data/translations/
+data/translations/*
+!data/translations/hr_HR.json
 CarCareTracker.csproj.user
 Properties/launchSettings.json
