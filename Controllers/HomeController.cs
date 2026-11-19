@@ -64,7 +64,12 @@ namespace CarCareTracker.Controllers
         }
         public IActionResult Index()
         {
-            return View();
+            var vehiclesStored = _dataAccess.GetVehicles();
+            if (!User.IsInRole(nameof(UserData.IsRootUser)))
+            {
+                vehiclesStored = _userLogic.FilterUserVehicles(vehiclesStored, GetUserID());
+            }
+            return View(vehiclesStored);
         }
         public IActionResult Garage()
         {

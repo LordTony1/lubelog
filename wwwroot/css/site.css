@@ -529,6 +529,112 @@ html[data-bs-theme="dark"] .ll-nav-link.active {
     cursor: pointer;
 }
 
+/* sub navigation — vehicles under Garage, records under the current vehicle */
+.ll-subnav {
+    list-style: none;
+    margin: 2px 0 6px;
+    padding: 0 0 0 34px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    position: relative;
+}
+
+.ll-subnav::before {
+    content: "";
+    position: absolute;
+    left: 21px;
+    top: 6px;
+    bottom: 6px;
+    width: 1px;
+    background: var(--ll-line);
+}
+
+.ll-subnav .ll-subnav {
+    padding-left: 12px;
+    margin: 2px 0;
+}
+
+.ll-subnav .ll-subnav::before {
+    display: none;
+}
+
+.ll-subnav-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    height: 28px;
+    padding: 0 8px;
+    border-radius: var(--ll-radius-sm);
+    background: transparent;
+    border: 0;
+    font-family: var(--ll-font);
+    font-size: 0.8125rem;
+    font-weight: 400;
+    color: var(--ll-ink-2);
+    text-decoration: none;
+    white-space: nowrap;
+    overflow: hidden;
+    text-align: left;
+    cursor: pointer;
+    transition: color var(--ll-t) var(--ll-ease), background-color var(--ll-t) var(--ll-ease);
+}
+
+.ll-subnav-link:hover {
+    color: var(--ll-ink);
+    background-color: var(--ll-raised);
+}
+
+html[data-bs-theme="dark"] .ll-subnav-link:hover {
+    background-color: var(--ll-surface);
+}
+
+.ll-subnav-link.active {
+    color: var(--ll-ink);
+    background-color: var(--ll-raised);
+    font-weight: 500;
+}
+
+html[data-bs-theme="dark"] .ll-subnav-link.active {
+    background-color: var(--ll-surface);
+}
+
+.ll-subnav-year {
+    font-family: var(--ll-mono);
+    font-size: 0.75rem;
+    color: var(--ll-muted);
+    flex-shrink: 0;
+}
+
+.ll-subnav-thumb {
+    height: 20px;
+    width: 20px;
+    border-radius: 4px;
+    object-fit: cover;
+    flex-shrink: 0;
+    pointer-events: none;
+}
+
+.ll-subnav-thumb.sold { filter: grayscale(100%); }
+
+.ll-subnav-edit {
+    margin-left: auto;
+    color: var(--ll-muted);
+    font-size: 0.8125rem;
+    flex-shrink: 0;
+}
+
+/* nested record rows sit tighter */
+.ll-subnav .ll-nav-link {
+    height: 28px;
+    font-size: 0.8125rem;
+    padding: 0 8px;
+}
+
+.ll-subnav .ll-nav-link.active::before {
+    left: -6px;
+}
+
 /* body geometry with the shell */
 body:has(.ll-shell) .lubelogger-body-container {
     padding-top: 24px;

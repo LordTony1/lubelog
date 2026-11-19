@@ -113,6 +113,12 @@ namespace CarCareTracker.Controllers
         public IActionResult Index(int vehicleId)
         {
             var data = _dataAccess.GetVehicleById(vehicleId);
+            var vehiclesStored = _dataAccess.GetVehicles();
+            if (!User.IsInRole(nameof(UserData.IsRootUser)))
+            {
+                vehiclesStored = _userLogic.FilterUserVehicles(vehiclesStored, GetUserID());
+            }
+            ViewBag.Vehicles = vehiclesStored;
             return View(data);
         }
         [HttpGet]
