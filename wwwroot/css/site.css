@@ -334,8 +334,7 @@ html[data-bs-theme="dark"] .btn-primary {
     border-right: 1px solid var(--ll-line);
     padding: 16px 12px;
     z-index: 1021;
-    overflow-y: auto;
-    overflow-x: hidden;
+    overflow: visible;
 }
 
 .ll-brand {
@@ -527,6 +526,94 @@ html[data-bs-theme="dark"] .ll-nav-link.active {
     color: var(--ll-ink);
     font-size: 1.375rem;
     cursor: pointer;
+}
+
+/* split row: main action + disclosure chevron */
+.ll-row {
+    display: flex;
+    gap: 2px;
+    align-items: stretch;
+}
+
+.ll-row .ll-nav-link {
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+.ll-row-chevron {
+    margin-left: auto;
+    font-size: 0.6875rem;
+    color: var(--ll-muted);
+    flex-shrink: 0;
+}
+
+.ll-chevron {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    flex: 0 0 32px;
+    border: 0;
+    border-radius: var(--ll-radius-sm);
+    background: transparent;
+    color: var(--ll-muted);
+    cursor: pointer;
+    transition: color var(--ll-t) var(--ll-ease), background-color var(--ll-t) var(--ll-ease);
+}
+
+.ll-chevron .bi { font-size: 0.8125rem; }
+
+.ll-chevron:hover {
+    color: var(--ll-ink);
+    background-color: var(--ll-raised);
+}
+
+html[data-bs-theme="dark"] .ll-chevron:hover {
+    background-color: var(--ll-surface);
+}
+
+/* flyout menus from the sidebar rows */
+.dropdown-menu.ll-flyout {
+    left: calc(100% + 4px);
+    top: -6px;
+    min-width: 224px;
+    padding: 6px;
+}
+
+.ll-flyout-tall {
+    max-height: min(70vh, 520px);
+    overflow-y: auto;
+}
+
+.ll-flyout .dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    height: 32px;
+    padding: 0 8px;
+    font-size: 0.8125rem;
+    min-width: 0;
+}
+
+.ll-flyout .dropdown-item .bi {
+    font-size: 1rem;
+    color: var(--ll-muted);
+    flex-shrink: 0;
+    width: 16px;
+}
+
+.ll-flyout .dropdown-item.active {
+    color: var(--ll-accent-text);
+    background-color: var(--ll-accent-soft);
+    font-weight: 500;
+}
+
+.ll-flyout .dropdown-item.active .bi {
+    color: var(--ll-accent-text);
+}
+
+.ll-flyout .dropdown-item .text-truncate {
+    min-width: 0;
 }
 
 /* sub navigation — vehicles under Garage, records under the current vehicle */

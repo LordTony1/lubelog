@@ -30,18 +30,21 @@
             </a>
             <ul class="ll-nav lubelogger-tab" id="homeTab" role="tablist">
                 <li class="ll-nav-item" role="presentation">
-                    <button class="ll-nav-link" id="garage-tab" data-bs-toggle="tab" data-bs-target="#garage-tab-pane" type="button" role="tab"><i class="bi bi-car-front"></i><span>@translator.Translate(userLanguage, "Garage")</span></button>
-                    @if (visibleVehicles.Any())
-                    {
-                        <ul class="ll-subnav">
-                            @foreach (var vehicle in visibleVehicles)
-                            {
-                                <li>
-                                    <a class="ll-subnav-link" href="/Vehicle/Index?vehicleId=@vehicle.Id"><span class="ll-subnav-year">@vehicle.Year</span><span class="text-truncate">@vehicle.Make @vehicle.Model</span></a>
-                                </li>
-                            }
-                        </ul>
-                    }
+                    <div class="ll-row">
+                        <button class="ll-nav-link" id="garage-tab" data-bs-toggle="tab" data-bs-target="#garage-tab-pane" type="button" role="tab"><i class="bi bi-car-front"></i><span>@translator.Translate(userLanguage, "Garage")</span></button>
+                        @if (visibleVehicles.Any())
+                        {
+                            <button type="button" class="ll-chevron" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false" aria-label="@translator.Translate(userLanguage, "Vehicles")"><i class="bi bi-chevron-down"></i></button>
+                            <ul class="dropdown-menu ll-flyout">
+                                @foreach (var vehicle in visibleVehicles)
+                                {
+                                    <li>
+                                        <a class="dropdown-item" href="/Vehicle/Index?vehicleId=@vehicle.Id"><span class="ll-subnav-year">@vehicle.Year</span><span class="text-truncate">@vehicle.Make @vehicle.Model</span></a>
+                                    </li>
+                                }
+                            </ul>
+                        }
+                    </div>
                 </li>
                 @if (config.GetServerEnableShopSupplies())
                 {
