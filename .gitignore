@@ -7,3 +7,6 @@ data/translations/*
 !data/translations/hr_HR.json
 CarCareTracker.csproj.user
 Properties/launchSettings.json
+
+# redesign review screenshots (never commit - may contain private data)
+screenshots/
