@@ -1,5 +1,6 @@
-﻿.sloader {
-    position: absolute;
+﻿/* Loading overlay — theme-aware, single accent ring */
+.sloader {
+    position: fixed;
     top: 0px;
     left: 0px;
     width: 100%;
@@ -8,48 +9,33 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: rgba(255,255,255,0.5);
+    background-color: rgba(242, 244, 239, 0.72);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+}
+
+@supports (color: color-mix(in srgb, red 50%, blue)) {
+    .sloader {
+        background-color: color-mix(in srgb, var(--ll-bg, #f2f4ef) 72%, transparent);
+    }
+}
+
+html[data-bs-theme="dark"] .sloader {
+    background-color: rgba(14, 19, 16, 0.72);
 }
 
 .loader {
     display: block;
-    width: 100px;
-    height: 100px;
-    border: 3px solid white;
+    width: 56px;
+    height: 56px;
+    border: 3px solid var(--ll-line-strong, #cdd3c6);
+    border-top-color: var(--ll-accent, #0a7d4f);
     border-radius: 50%;
-    animation: spin 7s ease-in-out;
-    animation-iteration-count: infinite;
-    transition-duration: 0.1s;
+    animation: llspin 0.9s linear infinite;
 }
 
-.loader:hover {
-    scale: 0.95;
-    /*Loader on hover effect*/
-}
-
-.loader:active {
-    scale: 2.5;
-    /*Loader on click effect*/
-}
-
-@keyframes spin {
-    0% {
-        transform: rotate(0deg);
-        border-bottom: solid 3px transparent;
-        border-top: solid 3px transparent;
-    }
-
-    50% {
-        transform: rotate(1800deg);
-        border: 3px solid white;
-        border-left: solid 3px transparent;
-        border-right: solid 3px transparent;
-    }
-
-    100% {
-        /*Reversed spinning*/
-        transform: rotate(0deg);
-        border-bottom: solid 3px transparent;
-        border-top: solid 3px transparent;
+@keyframes llspin {
+    to {
+        transform: rotate(360deg);
     }
 }

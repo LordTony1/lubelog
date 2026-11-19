@@ -1,7 +1,11 @@
 {
   "name": "LubeLogger",
+  "short_name": "LubeLogger",
+  "description": "Self-hosted vehicle service records and maintenance tracker",
   "start_url": "/",
   "display": "standalone",
+  "theme_color": "#0e1310",
+  "background_color": "#f2f4ef",
   "icons": [
     {
       "src": "/defaults/lubelogger_icon_72.png",

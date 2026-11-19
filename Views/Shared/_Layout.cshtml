@@ -31,15 +31,15 @@
 <html lang="en" data-bs-theme="@(useDarkMode ? "dark" : "light")">
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta name="apple-mobile-web-app-title" content="LubeLogger" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#181818">
-    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f3f3f3">
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0e1310">
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f2f4ef">
     @if (userConfig.DisableAutoZoom)
     {
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
     }
     <title>@ViewData["Title"] - LubeLogger</title>
     <link rel="icon" type="image/x-icon" href="~/favicon.ico">
