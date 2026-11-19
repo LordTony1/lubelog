@@ -1966,13 +1966,18 @@ function handleEndFileDrop(event) {
     }
 }
 function bindNavBarResize() {
+    // pages with the sidebar shell (.ll-shell) have no collapsible top navbar
+    if (document.querySelector('.ll-shell')) { return; }
     let resizeObserver = new ResizeObserver((elems) => {
         let targetElem = $(elems[0].target);
         checkNavBarOverflow();
     });
-    resizeObserver.observe(document.querySelector('.lubelogger-navbar'));
+    let navBar = document.querySelector('.lubelogger-navbar');
+    if (!navBar) { return; }
+    resizeObserver.observe(navBar);
 }
 function checkNavBarOverflow() {
+    if (document.querySelector('.ll-shell')) { return; }
     //check height
     $('.lubelogger-navbar > .lubelogger-tab > .nav-item').show();
     $('.nav-item-more > ul > li').hide(); //hide collapsed items

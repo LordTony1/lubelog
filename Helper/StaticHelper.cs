@@ -201,7 +201,12 @@ namespace CarCareTracker.Helper
         }
         public static List<string> GetBarChartColors()
         {
-            return new List<string> { "#00876c", "#43956e", "#67a371", "#89b177", "#a9be80", "#c8cb8b", "#e6d79b", "#e4c281", "#e3ab6b", "#e2925b", "#e07952", "#db5d4f" };
+            // one series, one quiet color; the current month carries the accent
+            var neutralBar = "rgba(128, 128, 128, 0.45)";
+            var accentBar = "#1d9a6c";
+            var colors = Enumerable.Repeat(neutralBar, 12).ToList();
+            colors[DateTime.Now.Month - 1] = accentBar;
+            return colors;
         }
 
         public static ServiceRecord GenericToServiceRecord(GenericRecord input)

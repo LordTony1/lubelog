@@ -1,4 +1,4 @@
-﻿/* Loading overlay — theme-aware, single accent ring */
+﻿/* Loading overlay — quiet, neutral */
 .sloader {
     position: fixed;
     top: 0px;
@@ -9,29 +9,21 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: rgba(242, 244, 239, 0.72);
-    backdrop-filter: blur(2px);
-    -webkit-backdrop-filter: blur(2px);
-}
-
-@supports (color: color-mix(in srgb, red 50%, blue)) {
-    .sloader {
-        background-color: color-mix(in srgb, var(--ll-bg, #f2f4ef) 72%, transparent);
-    }
+    background-color: rgba(250, 250, 250, 0.72);
 }
 
 html[data-bs-theme="dark"] .sloader {
-    background-color: rgba(14, 19, 16, 0.72);
+    background-color: rgba(20, 20, 21, 0.72);
 }
 
 .loader {
     display: block;
-    width: 56px;
-    height: 56px;
-    border: 3px solid var(--ll-line-strong, #cdd3c6);
-    border-top-color: var(--ll-accent, #0a7d4f);
+    width: 48px;
+    height: 48px;
+    border: 2px solid var(--ll-line, rgba(23, 23, 23, 0.08));
+    border-top-color: var(--ll-ink-2, #525252);
     border-radius: 50%;
-    animation: llspin 0.9s linear infinite;
+    animation: llspin 0.8s linear infinite;
 }
 
 @keyframes llspin {
